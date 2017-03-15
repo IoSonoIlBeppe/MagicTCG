@@ -13,7 +13,7 @@ import magictcg.Game;
  */
 public class EndPhase implements IPhase{
     
-    /* Verrà cambiato il giocatore corrente per far comninciare il turno al suo avversario */
+    /* Verrà cambiato il giocatore corrente per far cominciare il turno al suo avversario */
     @Override
     public void startPhase() {
         Game.getInstanceGame().switchPlayer();

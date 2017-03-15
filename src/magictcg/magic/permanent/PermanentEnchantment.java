@@ -3,22 +3,19 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package magictcg.cards;
+package magictcg.magic.permanent;
+
+import magictcg.magic.IMagic;
 
 /**
  *
  * @author Beppe
  */
-public class PermanentCreature implements IPermanent{
-    boolean tapped;
-    int attack, defence, damage;
+public class PermanentEnchantment implements IPermanent{
     
     @Override
     public void deletePermanent() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
-    public void setTapped(boolean tapped) {
-        this.tapped = tapped;
-    }
+    
 }

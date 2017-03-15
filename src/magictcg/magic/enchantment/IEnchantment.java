@@ -3,13 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package magictcg.cards;
+package magictcg.magic.enchantment;
+
+import magictcg.magic.IMagic;
 
 /**
  *
- * @author fmaganza
+ * @author gianmarcocallegher
  */
-public interface Creature extends IMagic{
-    public int getAttack();
-    public int getDefense();        
+public interface IEnchantment extends IMagic {
+    
 }

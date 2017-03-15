@@ -5,9 +5,8 @@
  */
 package magictcg.player;
 
-import magictcg.cards.IMagic;
-import java.util.ArrayList;
 import java.util.List;
+import magictcg.magic.IMagic;
 
 /**
  *
@@ -15,14 +14,14 @@ import java.util.List;
  */
 public class Deck {
 
-    List<IMagic> cards;
+    List<IMagic> magics;
 
     public Deck(List<IMagic> cards) {
-        this.cards = cards;
+        this.magics = cards;
     }
     
-    /* Pesca una carta dal Deck, se non è vuoto */
+    /* Pesca una magia dal Deck, se non è vuoto */
     public IMagic pop () {
-        return (cards.isEmpty())? null : cards.remove(0);
+        return (magics.isEmpty())? null : magics.remove(0);
     }
 }

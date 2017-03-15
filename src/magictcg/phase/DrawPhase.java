@@ -7,6 +7,7 @@ package magictcg.phase;
 
 import java.util.Scanner;
 import magictcg.Game;
+import static magictcg.InputOutput.inputDiscard;
 import magictcg.player.Player;
 
 /**
@@ -15,17 +16,20 @@ import magictcg.player.Player;
  */
 public class DrawPhase implements IPhase{
     
-    /* Il giocatore pescherà una carta dal mazzo. Se in mano ci saranno più di 7 carte,
+    /* Il giocatore pescherà una magia dal mazzo. Se in mano ci saranno più di 7 magie,
     appare ad output una scelta su quale carta scartare */
     @Override
     public void startPhase() {
+        int i;
         Player p = Game.getInstanceGame().getCurrentplayer();
-        p.drawCard();
-        while (p.getHand().getSize() > 7) {
-            System.out.println("Scegli la carta da scartare :");
-            p.getHand().showCards();
-            Scanner sc = new Scanner(System.in);
-            p.getHand().discardCard(sc.nextInt());
-        }
+        boolean b = p.drawMagic();
+        if (!b)
+            Game.getInstanceGame().getCurrentplayer().setLifepoints(0);
+        else
+            do{
+                i = inputDiscard(p);
+                p.getHand().discardMagic(i);
+            } while (p.getHand().getSize() > 7);
     }
 }
+

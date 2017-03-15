@@ -5,8 +5,9 @@
  */
 package magictcg.phase;
 
-import java.util.Scanner;
 import magictcg.Game;
+import static magictcg.InputOutput.inputInstant;
+import static magictcg.InputOutput.inputMagic;
 import magictcg.player.Player;
 
 /**
@@ -17,6 +18,33 @@ public class MainPhase implements IPhase{
 
     @Override
     public void startPhase() {
+        int i, flag = 0;
+        Player p = Game.getInstanceGame().getCurrentplayer();
+        if(!p.getHand().isEmpty()) {
+            i = inputMagic(p);
+            if (i != 0)
+                p.playMagic(inputMagic(p));
+            else
+                flag++;
+        }
+        
+        p = Game.getInstanceGame().opponent(p);
+        
+        while (!(p.getHand().isEmpty()) && flag < 2) {
+            i = inputInstant(p);
+            if (i != 0) {
+                flag = 0;
+                p.playMagic(i);
+            }
+            else
+                flag++;
+            p = Game.getInstanceGame().opponent(p);
+        }
+        Game.getInstanceGame().getStack().resolveStack();
+    }
+    
+    /*@Override
+    public void startPhase() {
         int a;
         Player p = Game.getInstanceGame().getCurrentplayer();
         System.out.println("Seleziona la carta che vuoi giocare :");
@@ -25,7 +53,6 @@ public class MainPhase implements IPhase{
         Scanner sc = new Scanner(System.in);
         a = sc.nextInt();
         if(a != 0 )
-            p.playCard(sc.nextInt());
-    }
-    
+            p.playCard(sc.nextInt());  
+    }*/
 }

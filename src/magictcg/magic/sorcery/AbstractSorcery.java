@@ -3,12 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package magictcg.cards;
+package magictcg.magic.sorcery;
+
+import magictcg.magic.AbstractMagic;
 
 /**
  *
  * @author fmaganza
  */
-public interface Instant extends IMagic{
-    
+public abstract class AbstractSorcery extends AbstractMagic{
 }

@@ -3,12 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package magictcg.cards;
+package magictcg.magic;
 
 /**
  *
- * @author fmaganza
+ * @author gianmarcocallegher
  */
-public interface Enchantment extends IMagic{
-    
+public interface IMagic {
+    void activeEffect();
+    String getName();
 }

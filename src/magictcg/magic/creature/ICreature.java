@@ -3,12 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package magictcg.cards;
+package magictcg.magic.creature;
+
+import magictcg.magic.IMagic;
 
 /**
  *
- * @author fmaganza
+ * @author gianmarcocallegher
  */
-public interface Sorcery extends IMagic{
+interface ICreature extends IMagic {
     
 }

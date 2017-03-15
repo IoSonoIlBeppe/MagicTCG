@@ -5,7 +5,7 @@
  */
 package magictcg;
 
-import magictcg.cards.IMagic;
+import magictcg.magic.IMagic;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,12 +21,12 @@ public class Stack {
         this.stack = new ArrayList<>();
     }
     
-    /* Aggiunge una carta allo Stack */
-    public void pushCard(IMagic c) {
-        stack.add(c);
+    /* Aggiunge una magia allo Stack */
+    public void pushMagic(IMagic m) {
+        stack.add(m);
     }
     
-    /* Viene prelevata una carta dallo stack e ne viene attivato l'effetto, 
+    /* Viene prelevata una magia dallo stack e ne viene attivato l'effetto, 
     se lo stack non è vuoto */
     public boolean popMagic() {
         if (!stack.isEmpty()) {
@@ -35,5 +35,18 @@ public class Stack {
             return true;
         }
         return false;
+    }
+    
+    public void pushMagic (IMagic m, int i) {
+        stack.add(i, m);
+    }
+    
+    public void popMagic (int i) {
+        stack.remove(i);
+    }
+    
+    public void resolveStack() {
+        while(!stack.isEmpty())
+            popMagic();
     }
 }

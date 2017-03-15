@@ -7,8 +7,10 @@ package magictcg;
 
 import magictcg.player.Deck;
 import magictcg.player.Player;
-import magictcg.cards.IMagic;
 import java.util.ArrayList;
+import static magictcg.InputOutput.inputInstant;
+import magictcg.magic.IMagic;
+import magictcg.magic.instant.IInstant;
 
 /**
  *
@@ -56,9 +58,23 @@ public class Game {
             currentplayer = p1;
     }
     
+    public Player opponent (Player p) {
+        return (p == p1)? p2 : p1;
+    }
+   
+    
+    public IMagic selectInstant (Player p) {
+        int i;
+        do {
+            i = inputInstant(p);
+        } while (i < 0 || i > p.getHand().getSize() || !(p.getHand().getMagic(i - 1) instanceof IInstant));
+        
+        return (i != 0)? p.getHand().getMagic(i - 1) : null;
+    }
+    
     public static void main(String[] args) {
-        p1 = new Player(LIFEPOINTS, new Deck(new ArrayList<IMagic>()));
-        p2 = new Player(LIFEPOINTS, new Deck(new ArrayList<IMagic>()));
+        p1 = new Player(LIFEPOINTS, new Deck(new ArrayList<>()));
+        p2 = new Player(LIFEPOINTS, new Deck(new ArrayList<>()));
         stack = new Stack();
         currentplayer = p1;
     }

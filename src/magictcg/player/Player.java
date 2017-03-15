@@ -6,7 +6,7 @@
 package magictcg.player;
 
 import magictcg.Game;
-import magictcg.cards.IMagic;
+import magictcg.magic.IMagic;
 
 
 /**
@@ -41,26 +41,28 @@ public class Player {
     public int getLifepoints() {
         return lifepoints;
     }
+
+    public void setLifepoints(int lifepoints) {
+        this.lifepoints = lifepoints;
+    }
     
-    /* Pesca carta, se ce ne sono nel deck*/
-    public boolean drawCard() {
-        IMagic c = deck.pop();
-        if (c != null) {
-            hand.addCard(c);
+    /* Pesca una magia, se ce ne sono nel deck*/
+    public boolean drawMagic() {
+        IMagic m = deck.pop();
+        if (m != null) {
+            hand.addMagic(m);
             return true;
         }
         return false;
     }
-    
-    /* Viene aggiunta una carta allo Stack, se la mano non è vuota */
-    public void playCard (int i) {
-        IMagic c = hand.pickCard(i);
-        if (c != null)
-            Game.getInstanceGame().getStack().pushCard(c);   // bisogna chiedere all'avversario se vuole rispondere con un istantanea
+
+    public void playMagic (int i) {
+        Game.getInstanceGame().getStack().pushMagic(hand.pickMagic(i));
     }
     
     /* Metodo che modifica i lifepoints in seguito all'attacco di un avversario */
     public void modifyLifePoints (int n) {
         lifepoints += n;
     }
+
 }

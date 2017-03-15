@@ -3,12 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package magictcg.cards;
+package magictcg.magic.enchantment;
+
+import magictcg.magic.AbstractMagic;
 
 /**
  *
- * @author gianmarcocallegher
+ * @author fmaganza
  */
-public interface IPermanent {
-    public void deletePermanent ();
+public abstract class AbstarctEnchantment extends AbstractMagic{
+    
 }

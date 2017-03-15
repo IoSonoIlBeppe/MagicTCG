@@ -8,8 +8,8 @@ package magictcg.player;
 
 import java.util.ArrayList;
 import java.util.List;
-import magictcg.cards.PermanentCreature;
-import magictcg.cards.IPermanent;
+import magictcg.magic.permanent.PermanentCreature;
+import magictcg.magic.permanent.IPermanent;
 
 /**
  *
