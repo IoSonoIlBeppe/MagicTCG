@@ -11,6 +11,6 @@ import magictcg.magic.IMagic;
  *
  * @author gianmarcocallegher
  */
-public interface ISorcery extends IMagic {
+public interface ISorcery{
     
 }

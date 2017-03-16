@@ -10,5 +10,5 @@ package magictcg;
  * @author gianmarcocallegher
  */
 public interface ICommand {
-    
+    void execute();
 }

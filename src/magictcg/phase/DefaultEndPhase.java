@@ -11,12 +11,17 @@ import magictcg.Game;
  *
  * @author Beppe
  */
-public class DefaultEndPhase implements IPhase{
+public class DefaultEndPhase extends AbstractPhase{
     
     /* Verrà cambiato il giocatore corrente per far cominciare il turno al suo avversario */
     @Override
     public void startPhase() {
         Game.getInstanceGame().switchPlayer();
+    }
+
+    @Override
+    public void resolveCommand() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }

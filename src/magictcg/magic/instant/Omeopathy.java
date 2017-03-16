@@ -11,7 +11,7 @@ import magictcg.magic.creature.AbstractCreature;
  *
  * @author gianmarcocallegher
  */
-public class Omeopathy extends AbstractCreature implements IInstant {
+public class Omeopathy extends AbstractInstant {
     public Omeopathy() {
         name = "Omeopathy";
         description = "It doesn't nothing";

@@ -21,11 +21,11 @@ public class StartGame {
         Player currentplayer;
         Game instanceGame;
         Player p1, p2;
-        Stack stack;
+        EffectStack stack;
 
         p1 = new Player(LIFEPOINTS, new Deck(new ArrayList<>()));
         p2 = new Player(LIFEPOINTS, new Deck(new ArrayList<>()));
-        stack = new Stack();
+        stack = new EffectStack();
         currentplayer = p1;
     
     }

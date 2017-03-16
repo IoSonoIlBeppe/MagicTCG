@@ -14,14 +14,14 @@ import java.util.List;
  *
  * @author Beppe
  */
-public class Stack {
+public class EffectStack {
     List<IMagic> stack;
 
-    public Stack() {
+    public EffectStack() {
         this.stack = new ArrayList<>();
     }
     
-    /* Aggiunge una magia allo Stack */
+    /* Aggiunge una magia allo EffectStack */
     public void pushMagic(IMagic m) {
         stack.add(m);
     }

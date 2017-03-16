@@ -11,6 +11,6 @@ import magictcg.magic.IMagic;
  *
  * @author gianmarcocallegher
  */
-public interface IEnchantment extends IMagic {
+public interface IEnchantment {
     
 }

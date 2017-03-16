@@ -21,7 +21,7 @@ public class Game {
     private static Player currentplayer;
     private static Game instanceGame;
     private static Player p1, p2;
-    private static Stack stack;
+    private static EffectStack stack;
     
     /* Costruttore privato per implementare il pattern Singleton */
     private Game() {}
@@ -45,7 +45,7 @@ public class Game {
         return currentplayer;
     }
 
-    public Stack getStack() {
+    public EffectStack getStack() {
         return stack;
     }
     

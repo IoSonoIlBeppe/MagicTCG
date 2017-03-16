@@ -9,11 +9,9 @@ package magictcg.phase;
  *
  * @author Beppe
  */
-public class DefaultCombatPhase implements IPhase {
-
+public class DefaultCombatPhase extends AbstractPhase {
+    
     @Override
     public void startPhase() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
 }
