@@ -23,7 +23,7 @@ public class DefaultMainPhase implements IPhase{
         if(!p.getHand().isEmpty()) {
             i = inputMagic(p);
             if (i != 0)
-                p.playMagic(inputMagic(p));
+                p.playMagic(i); 
             else
                 flag++;
         }
