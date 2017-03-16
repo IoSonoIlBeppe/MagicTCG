@@ -14,7 +14,7 @@ import magictcg.player.Player;
  *
  * @author Beppe
  */
-public class DefaultMainPhase implements IPhase{
+public class DefaultMainPhase extends AbstractPhase{
 
     @Override
     public void startPhase() {
@@ -41,5 +41,10 @@ public class DefaultMainPhase implements IPhase{
             p = Game.getInstanceGame().opponent(p);
         }
         Game.getInstanceGame().getStack().resolveStack();
+    }
+
+    @Override
+    public void resolveCommand() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

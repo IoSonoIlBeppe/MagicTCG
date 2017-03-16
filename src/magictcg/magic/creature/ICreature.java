@@ -11,6 +11,6 @@ import magictcg.magic.IMagic;
  *
  * @author gianmarcocallegher
  */
-interface ICreature extends IMagic {
+interface ICreature {
     
 }

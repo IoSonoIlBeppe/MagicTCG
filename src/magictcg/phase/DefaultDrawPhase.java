@@ -14,7 +14,7 @@ import magictcg.player.Player;
  *
  * @author Beppe
  */
-public class DefaultDrawPhase implements IPhase{
+public class DefaultDrawPhase extends AbstractPhase{
     
     /* Il giocatore pescherà una magia dal mazzo. Se in mano ci saranno più di 7 magie,
     appare ad output una scelta su quale carta scartare */
@@ -30,6 +30,11 @@ public class DefaultDrawPhase implements IPhase{
                 i = inputDiscard(p);
                 p.getHand().discardMagic(i);
             } while (p.getHand().getSize() > 7);
+    }
+
+    @Override
+    public void resolveCommand() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
 

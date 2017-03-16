@@ -11,6 +11,6 @@ import magictcg.magic.IMagic;
  *
  * @author gianmarcocallegher
  */
-public interface IInstant extends IMagic {
+public interface IInstant{
     
 }

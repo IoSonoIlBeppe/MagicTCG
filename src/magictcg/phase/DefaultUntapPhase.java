@@ -11,12 +11,17 @@ import magictcg.Game;
  *
  * @author Beppe
  */
-public class DefaultUntapPhase implements IPhase {
+public class DefaultUntapPhase extends AbstractPhase {
     
     /* Richiama il metodo untap() di Field per mettere untapped tutte le creature in campo */
     @Override
     public void startPhase() {
         Game.getInstanceGame().getCurrentplayer().getField().untap();
+    }
+
+    @Override
+    public void resolveCommand() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }

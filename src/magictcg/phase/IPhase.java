@@ -10,5 +10,5 @@ package magictcg.phase;
  * @author Beppe
  */
 public interface IPhase {
-    void startPhase(); 
+    void startPhase();
 }
