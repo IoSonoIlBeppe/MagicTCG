@@ -5,18 +5,15 @@
  */
 package magictcg.phase;
 
-import magictcg.Game;
-
 /**
  *
  * @author Beppe
  */
-public class UntapPhase implements IPhase {
-    
-    /* Richiama il metodo untap() di Field per mettere untapped tutte le creature in campo */
+public class DefaultCombatPhase implements IPhase {
+
     @Override
     public void startPhase() {
-        Game.getInstanceGame().getCurrentplayer().getField().untap();
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }

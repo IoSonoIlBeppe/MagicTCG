@@ -3,17 +3,19 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package magictcg.magic.creature;
+package magictcg.magic.instant;
+
+import magictcg.magic.creature.AbstractCreature;
 
 /**
  *
  * @author gianmarcocallegher
  */
-public class CreatureOmeopathy extends AbstractCreature implements ICreature {
-
-    public CreatureOmeopathy() {
-        Name = "Omeopathy";
-        Description = "It doesn't nothing";
+public class Omeopathy extends AbstractCreature implements IInstant {
+    public Omeopathy() {
+        name = "Omeopathy";
+        description = "It doesn't nothing";
+        type = "Instant";
     }
     
     @Override

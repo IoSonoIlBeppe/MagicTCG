@@ -11,7 +11,7 @@ import magictcg.Game;
  *
  * @author Beppe
  */
-public class EndPhase implements IPhase{
+public class DefaultEndPhase implements IPhase{
     
     /* Verrà cambiato il giocatore corrente per far cominciare il turno al suo avversario */
     @Override

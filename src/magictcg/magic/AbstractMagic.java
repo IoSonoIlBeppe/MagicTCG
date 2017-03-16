@@ -10,13 +10,17 @@ package magictcg.magic;
  * @author gianmarcocallegher
  */
 public abstract class AbstractMagic implements IMagic{
-    protected String Name, Description;
+    protected String name, description, type;
 
     public String getName() {
-        return Name;
+        return name;
     }
 
     public String getDescription() {
-        return Description;
+        return description;
+    }
+
+    public String getType() {
+        return type;
     }
 }

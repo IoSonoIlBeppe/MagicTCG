@@ -18,11 +18,10 @@ import magictcg.magic.instant.IInstant;
  */
 public class Game {
     
-    private static Player currentplayer; // indica il giocatore corrente
+    private static Player currentplayer;
     private static Game instanceGame;
     private static Player p1, p2;
     private static Stack stack;
-    private final static int LIFEPOINTS = 20;
     
     /* Costruttore privato per implementare il pattern Singleton */
     private Game() {}
@@ -61,22 +60,4 @@ public class Game {
     public Player opponent (Player p) {
         return (p == p1)? p2 : p1;
     }
-   
-    
-    public IMagic selectInstant (Player p) {
-        int i;
-        do {
-            i = inputInstant(p);
-        } while (i < 0 || i > p.getHand().getSize() || !(p.getHand().getMagic(i - 1) instanceof IInstant));
-        
-        return (i != 0)? p.getHand().getMagic(i - 1) : null;
-    }
-    
-    public static void main(String[] args) {
-        p1 = new Player(LIFEPOINTS, new Deck(new ArrayList<>()));
-        p2 = new Player(LIFEPOINTS, new Deck(new ArrayList<>()));
-        stack = new Stack();
-        currentplayer = p1;
-    }
-    
 }

@@ -14,7 +14,7 @@ import magictcg.player.Player;
  *
  * @author Beppe
  */
-public class DrawPhase implements IPhase{
+public class DefaultDrawPhase implements IPhase{
     
     /* Il giocatore pescherà una magia dal mazzo. Se in mano ci saranno più di 7 magie,
     appare ad output una scelta su quale carta scartare */
