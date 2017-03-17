@@ -16,17 +16,20 @@ import magictcg.player.Player;
 public class StartGame {
     private final static int LIFEPOINTS = 20;
     
-    public static void main(String[] args) {
-
-        Player currentplayer;
-        Game instanceGame;
-        Player p1, p2;
-        EffectStack stack;
-
-        p1 = new Player(LIFEPOINTS, new Deck(new ArrayList<>()));
-        p2 = new Player(LIFEPOINTS, new Deck(new ArrayList<>()));
-        stack = new EffectStack();
-        currentplayer = p1;
+    public static void main(String[] args) {       
+        Game g = Game.getInstanceGame();
+        g.setP1(new Player(LIFEPOINTS, new Deck(new ArrayList<>())));
+        g.setP2( new Player(LIFEPOINTS, new Deck(new ArrayList<>())));
+        g.setStack(new EffectStack());
+        g.setCurrentplayer(g.getP1());
+        while (g.getP1().getLifepoints()>0 && g.getP2().getLifepoints()>0){
+            Player p=g.getCurrentplayer();
+            PhaseManager m=p.getPhaseManager();
+            
+        }
+        
+        
+        
     
     }
 }
