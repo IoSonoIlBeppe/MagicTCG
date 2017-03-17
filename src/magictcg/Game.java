@@ -45,6 +45,24 @@ public class Game {
     public Player getP2() {
         return p2;
     }
+
+    public void setCurrentplayer(Player currentplayer) {
+        Game.currentplayer = currentplayer;
+    }
+
+    public void setP1(Player p1) {
+        Game.p1 = p1;
+    }
+
+    public void setP2(Player p2) {
+        Game.p2 = p2;
+    }
+
+    public void setStack(EffectStack stack) {
+        Game.stack = stack;
+    }
+    
+    
     
     /**
      * This method returns the reference to the player which is currently 

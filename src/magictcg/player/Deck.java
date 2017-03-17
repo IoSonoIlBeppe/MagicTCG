@@ -5,6 +5,7 @@
  */
 package magictcg.player;
 
+import java.util.ArrayList;
 import java.util.List;
 import magictcg.magic.IMagic;
 
@@ -16,8 +17,8 @@ public class Deck {
 
     List<IMagic> magics;
 
-    public Deck(List<IMagic> cards) {
-        this.magics = cards;
+    public Deck() {
+        this.magics = new ArrayList<>();
     }
     
     // NOTA BENE solo per debug

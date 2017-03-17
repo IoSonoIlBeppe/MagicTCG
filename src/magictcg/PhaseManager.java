@@ -7,6 +7,10 @@ package magictcg;
 
 import java.util.ArrayList;
 import java.util.List;
+import magictcg.phase.DefaultDrawPhase;
+import magictcg.phase.DefaultEndPhase;
+import magictcg.phase.DefaultMainPhase;
+import magictcg.phase.DefaultUntapPhase;
 import magictcg.phase.DrawPhase;
 import magictcg.phase.EndPhase;
 import magictcg.phase.IPhase;
@@ -52,11 +56,11 @@ public class PhaseManager {
 
     public void resetPhases() {
         phases.clear();
-        phases.add(new DrawPhase());
-        phases.add(new UntapPhase());
+        phases.add(new DefaultDrawPhase());
+        phases.add(new DefaultUntapPhase());
         //phases.add(new CombatPhase());
-        phases.add(new MainPhase());
-        phases.add(new EndPhase());
+        phases.add(new DefaultMainPhase());
+        phases.add(new DefaultEndPhase());
     }
 
     public void insertPhase(int index, IPhase phase) {

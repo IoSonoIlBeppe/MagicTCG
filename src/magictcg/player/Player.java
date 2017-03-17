@@ -10,24 +10,30 @@ import magictcg.PhaseManager;
 import magictcg.magic.IMagic;
 import magictcg.magic.instant.Omeopathy;
 
-
 /**
  *
  * @author Beppe
  */
 public class Player {
+    
+    String name;
     int lifepoints;
     Field field;
     Deck deck;
     Hand hand;
     PhaseManager phaseManager;
 
-    public Player(int lifepoints, Deck deck) {
+    public Player(int lifepoints, String name) {
+        this.name = name;
         this.lifepoints = lifepoints;
-        this.deck = deck;
+        this.deck = new Deck();
         field = new Field();
         hand = new Hand();
         phaseManager = new PhaseManager();
+    }
+
+    public String getName() {
+        return name;
     }
 
     public Field getField() {
@@ -50,39 +56,42 @@ public class Player {
         return phaseManager;
     }
 
-
     public void setLifepoints(int lifepoints) {
         this.lifepoints = lifepoints;
     }
-    
+
     public void setOmeopathyDeck() {
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 10; i++) {
             deck.push(new Omeopathy());
         }
     }
     
+    public void setFirstHand() {
+        for (int i = 0; i < 5; i++) {
+            this.drawMagic();
+        }
+    }
+
     /* Pesca una magia, se ce ne sono nel deck, se non riesce a pescare setta la propria vita a 0*/
     public boolean drawMagic() {
         IMagic m = deck.pop();
         if (m != null) {
             hand.addMagic(m);
             return true;
-        }else{
-            lifepoints=0;
+        } else {
+            lifepoints = 0;
             return false;
         }
-            
+
     }
 
-    public void playMagic (int i) {
+    public void playMagic(int i) {
         Game.getInstanceGame().getStack().pushMagic(hand.pickMagic(i));
     }
-    
+
     /* Metodo che modifica i lifepoints in seguito all'attacco di un avversario */
-    public void modifyLifePoints (int n) {
+    public void modifyLifePoints(int n) {
         lifepoints += n;
     }
-    
-    
 
 }
