@@ -6,11 +6,13 @@
 package magictcg;
 
 import java.util.ArrayList;
-import magictcg.phase.DefaultDrawPhase;
-import magictcg.phase.DefaultEndPhase;
-import magictcg.phase.DefaultMainPhase;
-import magictcg.phase.DefaultUntapPhase;
+import java.util.List;
+import magictcg.phase.DrawPhase;
+import magictcg.phase.EndPhase;
 import magictcg.phase.IPhase;
+import magictcg.phase.MainPhase;
+import magictcg.phase.UntapPhase;
+import magictcg.trigger.Trigger;
 
 
 /**
@@ -18,12 +20,14 @@ import magictcg.phase.IPhase;
  * @author Beppe
  */
 public class PhaseManager {
-
-    ArrayList<IPhase> phases;
-
+    
+    List<IPhase> phases;
+    Trigger startTrigger, endTrigger;
+    
     public PhaseManager() {
         phases = new ArrayList<>();
-        this.resetPhases();
+        startTrigger = new Trigger();
+        endTrigger = new Trigger();
     }
 
     public boolean isEndOfTurn() {
@@ -37,13 +41,22 @@ public class PhaseManager {
             return null;
         }
     }
+    
+    public void resolvePhases() {
+        startTrigger.resolveCommands();
+        for (IPhase p : phases) {
+            p.startPhase();
+        }
+        endTrigger.resolveCommands();
+    }
 
-    private void resetPhases() {
+    public void resetPhases() {
         phases.clear();
-        phases.add(new DefaultDrawPhase());
-        phases.add(new DefaultUntapPhase());
-        phases.add(new DefaultMainPhase());
-        phases.add(new DefaultEndPhase());
+        phases.add(new DrawPhase());
+        phases.add(new UntapPhase());
+        //phases.add(new CombatPhase());
+        phases.add(new MainPhase());
+        phases.add(new EndPhase());
     }
 
     public void insertPhase(int index, IPhase phase) {
@@ -52,10 +65,9 @@ public class PhaseManager {
 
     public int indexOfPhase(IPhase selector) {
         int i = 0;
-        while (((phases.get(i)).getClass() != selector.getClass()) && i < phases.size()) {
+        while (((phases.get(i)).getClass() != selector.getClass()) && i < phases.size())
             i++;
-        }
-        return (i < phases.size()) ? i : -1;
+        return (i < phases.size())? i : -1;
     }
 
     public void switchPhases(int phase1, int phase2) {

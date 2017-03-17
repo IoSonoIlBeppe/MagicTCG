@@ -6,6 +6,7 @@
 package magictcg.player;
 
 import magictcg.Game;
+import magictcg.PhaseManager;
 import magictcg.magic.IMagic;
 
 
@@ -18,12 +19,14 @@ public class Player {
     Field field;
     Deck deck;
     Hand hand;
+    PhaseManager phaseManager;
 
     public Player(int lifepoints, Deck deck) {
         this.lifepoints = lifepoints;
         this.deck = deck;
         field = new Field();
         hand = new Hand();
+        phaseManager = new PhaseManager();
     }
 
     public Field getField() {

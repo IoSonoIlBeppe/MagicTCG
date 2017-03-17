@@ -9,7 +9,7 @@ package magictcg.phase;
  *
  * @author Beppe
  */
-public class DefaultCombatPhase extends AbstractPhase {
+public class DefaultCombatPhase extends CombatPhase{
     
     @Override
     public void startPhase() {

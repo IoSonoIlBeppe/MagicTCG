@@ -14,7 +14,7 @@ import magictcg.player.Player;
  *
  * @author Beppe
  */
-public class DefaultMainPhase extends AbstractPhase{
+public class DefaultMainPhase extends MainPhase{
 
     @Override
     public void startPhase() {
@@ -23,7 +23,7 @@ public class DefaultMainPhase extends AbstractPhase{
         if(!p.getHand().isEmpty()) {
             i = inputMagic(p);
             if (i != 0)
-                p.playMagic(inputMagic(p));
+                p.playMagic(i);
             else
                 flag++;
         }
@@ -41,10 +41,5 @@ public class DefaultMainPhase extends AbstractPhase{
             p = Game.getInstanceGame().opponent(p);
         }
         Game.getInstanceGame().getStack().resolveStack();
-    }
-
-    @Override
-    public void resolveCommand() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

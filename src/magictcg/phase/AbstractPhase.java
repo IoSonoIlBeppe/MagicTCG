@@ -5,8 +5,10 @@
  */
 package magictcg.phase;
 
-import java.util.Stack;
-import magictcg.ICommand;
+import java.util.ArrayList;
+import java.util.List;
+import magictcg.trigger.AbstractCommand;
+import magictcg.trigger.ICommand;
 
 
 /**
@@ -14,14 +16,9 @@ import magictcg.ICommand;
  * @author gianmarcocallegher
  */
 public abstract class AbstractPhase implements IPhase {
-    Stack<ICommand> commands;
+    List<ICommand> commands;
     
     public AbstractPhase (){
-        this.commands  = new Stack<>();
-    }
-    
-    void resolveCommand() {
-        while (!(commands.isEmpty()))
-            commands.pop().execute();
+        this.commands  = new ArrayList<>();
     }
 }
