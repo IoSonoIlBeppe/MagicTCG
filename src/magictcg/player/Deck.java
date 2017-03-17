@@ -20,6 +20,10 @@ public class Deck {
         this.magics = cards;
     }
     
+    // NOTA BENE solo per debug
+    public void push(IMagic card) {
+        magics.add(card);
+    }
     /* Pesca una magia dal Deck, se non è vuoto */
     public IMagic pop () {
         return (magics.isEmpty())? null : magics.remove(0);

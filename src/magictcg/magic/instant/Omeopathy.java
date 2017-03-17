@@ -5,8 +5,6 @@
  */
 package magictcg.magic.instant;
 
-import magictcg.magic.creature.AbstractCreature;
-
 /**
  *
  * @author gianmarcocallegher
@@ -20,6 +18,6 @@ public class Omeopathy extends AbstractInstant {
     
     @Override
     public void activeEffect() {
-        
+        System.out.println("Sono omeopathy e non faccio nulla");
     }
 }

@@ -8,6 +8,7 @@ package magictcg.player;
 import magictcg.Game;
 import magictcg.PhaseManager;
 import magictcg.magic.IMagic;
+import magictcg.magic.instant.Omeopathy;
 
 
 /**
@@ -45,8 +46,19 @@ public class Player {
         return lifepoints;
     }
 
+    public PhaseManager getPhaseManager() {
+        return phaseManager;
+    }
+
+
     public void setLifepoints(int lifepoints) {
         this.lifepoints = lifepoints;
+    }
+    
+    public void setOmeopathyDeck() {
+        for (int i = 0; i < 5; i++) {
+            deck.push(new Omeopathy());
+        }
     }
     
     /* Pesca una magia, se ce ne sono nel deck*/
@@ -67,5 +79,7 @@ public class Player {
     public void modifyLifePoints (int n) {
         lifepoints += n;
     }
+    
+    
 
 }
