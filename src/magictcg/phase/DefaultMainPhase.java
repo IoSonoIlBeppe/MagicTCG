@@ -32,6 +32,7 @@ public class DefaultMainPhase extends MainPhase{
         p = Game.getInstanceGame().opponent(p);
         
         while (!(p.getHand().isEmpty()) && flag < 2) {
+            System.out.println(p.getName());
             i = inputInstant(p);
             if (i != 0) {
                 flag = 0;
