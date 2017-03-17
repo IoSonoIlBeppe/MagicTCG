@@ -23,6 +23,8 @@ public class StartGame {
         g.setStack(new EffectStack());
         g.setCurrentplayer(g.getP1());
         while (g.getP1().getLifepoints()>0 && g.getP2().getLifepoints()>0){
+            Player p=g.getCurrentplayer();
+            PhaseManager m=p.getPhaseManager();
             
         }
         
