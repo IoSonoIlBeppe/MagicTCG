@@ -20,6 +20,7 @@ public class DefaultMainPhase extends MainPhase{
     public void startPhase() {
         int i, flag = 0;
         Player p = Game.getInstanceGame().getCurrentplayer();
+        System.out.println("mainphase player:"+p.getName());
         if(!p.getHand().isEmpty()) {
             i = inputMagic(p);
             if (i != 0)

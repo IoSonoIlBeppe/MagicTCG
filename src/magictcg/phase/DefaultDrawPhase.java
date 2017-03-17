@@ -14,8 +14,8 @@ import magictcg.player.Player;
  *
  * @author Beppe
  */
-public class DefaultDrawPhase extends DrawPhase{
-    
+public class DefaultDrawPhase extends DrawPhase {
+
     /* Il giocatore pescherà una magia dal mazzo. Se in mano ci saranno più di 7 magie,
     appare ad output una scelta su quale carta scartare */
     @Override
@@ -23,13 +23,15 @@ public class DefaultDrawPhase extends DrawPhase{
         int i;
         Player p = Game.getInstanceGame().getCurrentplayer();
         boolean b = p.drawMagic();
-        if (!b)
+        System.out.println("drawphase player:" + p.getName());
+        System.out.println(p.getHand().getSize());
+        if (!b) {
             Game.getInstanceGame().getCurrentplayer().setLifepoints(0);
-        else
-            do{
+        } else {
+            while (p.getHand().getSize() > 7) {
                 i = inputDiscard(p);
                 p.getHand().discardMagic(i);
-            } while (p.getHand().getSize() > 7);
+            }
+        }
     }
 }
-

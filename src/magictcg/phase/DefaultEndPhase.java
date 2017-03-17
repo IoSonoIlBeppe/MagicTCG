@@ -6,6 +6,7 @@
 package magictcg.phase;
 
 import magictcg.Game;
+import magictcg.player.Player;
 
 /**
  *
@@ -16,6 +17,8 @@ public class DefaultEndPhase extends EndPhase{
     /* Verrà cambiato il giocatore corrente per far cominciare il turno al suo avversario */
     @Override
     public void startPhase() {
+        Player p = Game.getInstanceGame().getCurrentplayer();
+        System.out.println("endphase player:"+p.getName());
         Game.getInstanceGame().switchPlayer();
     }    
 }

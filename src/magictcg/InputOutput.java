@@ -26,16 +26,16 @@ public final class InputOutput {
      }
     
     public static int inputMagic (Player p) {
-        System.out.println("Choose the magic you want to play or press 0 to skip:");
+        System.out.println("sono il player:"+p.getName()+"  Choose the magic you want to play or press 0 to skip:");
         return input(p, 0);
     }
     
     public static int inputInstant (Player p) {
-        System.out.println("Choose the instant you want to play or press 0 to skip:");
+        System.out.println("sono il player:"+p.getName()+"Choose the instant you want to play or press 0 to skip:");
         int i;
         do{
             i = input(p, 0);
-        }while (!(p.getHand().getMagic(i) instanceof IInstant));
+        }while (!(p.getHand().getMagic(i) instanceof IInstant)&&i!=0);
         
         return i;
     }
