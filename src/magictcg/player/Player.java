@@ -83,7 +83,7 @@ public class Player {
     }
 
     public void playMagic(int i) {
-        Game.getInstanceGame().getStack().pushMagic(hand.pickMagic(i));
+        Game.getInstanceGame().getStack().pushMagic(this.getHand().pickMagic(i));
     }
 
     /* Metodo che modifica i lifepoints in seguito all'attacco di un avversario */
