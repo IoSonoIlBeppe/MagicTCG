@@ -6,8 +6,8 @@
 package magictcg.trigger;
 
 /**
- *
- * @author gianmarcocallegher
+ * Intefaccia per tutti i comandi nella lista "commands" nella classe Trigger.
+ * 
  */
 public interface ICommand {
     void execute();
