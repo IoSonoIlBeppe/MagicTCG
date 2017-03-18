@@ -29,7 +29,7 @@ public class Hand {
     /* Metodo per scartare una magia */ 
     public void discardMagic (int i) {
         if (!hand.isEmpty())
-            hand.remove(i - 1);
+            hand.remove(i);
     }
     
     /* Metodo per aggiungere una magia alla mano */
@@ -39,7 +39,7 @@ public class Hand {
     
     /* Metodo per giocare una magia */
     public IMagic pickMagic (int i) {
-        return (!hand.isEmpty())? hand.remove(i - 1) : null;
+        return hand.remove(i);
     }
     
     /* Metodo che restituisce il numero di magie nella mano */

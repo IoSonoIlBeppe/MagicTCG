@@ -24,4 +24,8 @@ public class Field {
             if (p instanceof PermanentCreature)
                 ((PermanentCreature) p).setTapped(false);
     }
+    
+    public int getSize() {
+        return slots.size();
+    }
 }

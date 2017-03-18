@@ -18,6 +18,6 @@ public class Omeopathy extends AbstractInstant {
     
     @Override
     public void activeEffect() {
-        System.out.println("Sono omeopathy e non faccio nulla");
+        System.out.println("I'm Omeopathy. I'm useless");
     }
 }

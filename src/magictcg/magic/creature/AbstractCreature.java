@@ -13,7 +13,7 @@ import magictcg.magic.AbstractMagic;
  *
  * @author fmaganza
  */
-public abstract class AbstractCreature extends AbstractMagic{
+public abstract class AbstractCreature extends AbstractMagic implements ICreature{
     int attack, defense, damage;
     
     public int getAttack() {

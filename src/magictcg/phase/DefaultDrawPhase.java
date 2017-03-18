@@ -5,9 +5,10 @@
  */
 package magictcg.phase;
 
-import java.util.Scanner;
 import magictcg.Game;
-import static magictcg.InputOutput.inputDiscard;
+import static magictcg.InputOutput.deckSize;
+import static magictcg.InputOutput.handSize;
+import static magictcg.InputOutput.phaseNameOf;
 import magictcg.player.Player;
 
 /**
@@ -20,18 +21,11 @@ public class DefaultDrawPhase extends DrawPhase {
     appare ad output una scelta su quale carta scartare */
     @Override
     public void startPhase() {
-        int i;
         Player p = Game.getInstanceGame().getCurrentplayer();
-        boolean b = p.drawMagic();
-        System.out.println("drawphase player:" + p.getName());
-        System.out.println(p.getHand().getSize());
-        if (!b) {
-            Game.getInstanceGame().getCurrentplayer().setLifepoints(0);
-        } else {
-            while (p.getHand().getSize() > 7) {
-                i = inputDiscard(p);
-                p.getHand().discardMagic(i);
-            }
-        }
+        phaseNameOf(p, this);
+        draw();
+        handSize(p);
+        deckSize(p);
+        discard();
     }
 }

@@ -6,6 +6,7 @@
 package magictcg.phase;
 
 import magictcg.Game;
+import static magictcg.InputOutput.phaseNameOf;
 import magictcg.player.Player;
 
 /**
@@ -18,7 +19,7 @@ public class DefaultUntapPhase extends UntapPhase{
     @Override
     public void startPhase() {
         Player p = Game.getInstanceGame().getCurrentplayer();
-        System.out.println("untap phase player:"+p.getName());
+        phaseNameOf(p, this);
         Game.getInstanceGame().getCurrentplayer().getField().untap();
     }
 }

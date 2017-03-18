@@ -9,11 +9,10 @@ package magictcg.phase;
  *
  * @author gianmarcocallegher
  */
-public class DrawPhase implements IPhase {
+public abstract class DrawPhase extends AbstractPhase{
 
     @Override
-    public void startPhase() {
-        
+    public String getPhaseName() {
+        return "DrawPhase";
     }
-    
 }

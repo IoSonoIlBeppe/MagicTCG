@@ -11,7 +11,7 @@ package magictcg.trigger;
  * @author gianmarcocallegher
  */
 public abstract class AbstractCommand implements ICommand {
-    int triggercounter;
+    int triggercounter, turns;
 
     public void setTriggercounter(int triggercounter) {
         this.triggercounter = triggercounter;
@@ -19,5 +19,13 @@ public abstract class AbstractCommand implements ICommand {
 
     public int getTriggercounter() {
         return triggercounter;
-    }   
+    }
+
+    public int getTurns() {
+        return turns;
+    }
+
+    public void setTurns(int turns) {
+        this.turns = turns;
+    }
 }

@@ -12,5 +12,5 @@ import magictcg.magic.IMagic;
  *
  * @author fmaganza
  */
-public abstract class AbstractInstant extends AbstractMagic {
+public abstract class AbstractInstant extends AbstractMagic implements IInstant {
 }

@@ -6,7 +6,9 @@
 package magictcg.phase;
 
 import magictcg.Game;
+import static magictcg.InputOutput.phaseNameOf;
 import magictcg.player.Player;
+
 
 /**
  *
@@ -18,7 +20,7 @@ public class DefaultEndPhase extends EndPhase{
     @Override
     public void startPhase() {
         Player p = Game.getInstanceGame().getCurrentplayer();
-        System.out.println("endphase player:"+p.getName());
+        phaseNameOf(p, this);
         Game.getInstanceGame().switchPlayer();
     }    
 }

@@ -13,38 +13,32 @@ import magictcg.player.Player;
  */
 public class StartGame {
 
-    //private static int LIFEPOINTS = 20;
-
     public static void main(String[] args) {
+        int lifepoints = 20;
         Game g = Game.getInstanceGame();
-        System.out.println("creato il game");
-        g.setP1(new Player(20, "Player1"));
-        System.out.println(g.getP1().getName()+ " "+ g.getP1().getLifepoints());
-        g.setP2(new Player(20, "Player2"));
-        System.out.println(g.getP2().getName()+ " "+ g.getP2().getLifepoints());
+        System.out.println("Magic by Group 3");
+        g.setP1(new Player(lifepoints, "Player1"));
+        System.out.println(g.getP1().getName() + " has " + g.getP1().getLifepoints() + " lifepoints");
+        g.setP2(new Player(lifepoints, "Player2"));
+        System.out.println(g.getP2().getName() + " has " + g.getP2().getLifepoints() + " lifepoints");
         g.setStack(new EffectStack());
-        System.out.println("creato stack");
         g.setCurrentplayer(g.getP1());
-        System.out.println("creato curr");
-        System.out.println(g.getP1().getName()+ " "+ g.getP1().getLifepoints());
         g.getP1().setOmeopathyDeck();
         g.getP2().setOmeopathyDeck();
         g.getP1().setFirstHand();
-        System.out.println("creato h p1");
-        System.out.println(g.getP1().getName()+ " "+ g.getP1().getLifepoints());
         g.getP2().setFirstHand();
-        System.out.println("creato h p2");
-        System.out.println(g.getP1().getLifepoints());
-        System.out.println(g.getP2().getLifepoints());
         
         while (g.getP1().getLifepoints() > 0 && g.getP2().getLifepoints() > 0) {
-            System.out.println("ciao");
             Player p = g.getCurrentplayer();
-            System.out.println("È il turno del giocatore " + g.getCurrentplayer().getName());
+            System.out.println("It's " + g.getCurrentplayer().getName() + " turn");
             PhaseManager m = p.getPhaseManager();
             m.resetPhases();
             m.resolvePhases();
         }
-
+        
+        if (g.getP1().getLifepoints() == 0)
+            System.out.println(g.getP2().getName() + " wins.");
+        else
+            System.out.println(g.getP1().getName() + " wins.");       
     }
 }

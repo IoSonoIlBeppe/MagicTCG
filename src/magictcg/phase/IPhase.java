@@ -11,4 +11,5 @@ package magictcg.phase;
  */
 public interface IPhase {
     void startPhase();
+    String getPhaseName();
 }

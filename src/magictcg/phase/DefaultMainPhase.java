@@ -6,8 +6,7 @@
 package magictcg.phase;
 
 import magictcg.Game;
-import static magictcg.InputOutput.inputInstant;
-import static magictcg.InputOutput.inputMagic;
+import static magictcg.InputOutput.phaseNameOf;
 import magictcg.player.Player;
 
 /**
@@ -18,29 +17,12 @@ public class DefaultMainPhase extends MainPhase{
 
     @Override
     public void startPhase() {
-        int i, flag = 0;
+        int flag;
         Player p = Game.getInstanceGame().getCurrentplayer();
-        System.out.println("mainphase player:"+p.getName());
-        if(!p.getHand().isEmpty()) {
-            i = inputMagic(p);
-            if (i != 0)
-                p.playMagic(i);
-            else
-                flag++;
-        }
-        
+        phaseNameOf(p, this);
+        flag = playDefaultMagic(p);
         p = Game.getInstanceGame().opponent(p);
-        
-        while (!(p.getHand().isEmpty()) && flag < 2) {
-            i = inputInstant(p);
-            if (i != 0) {
-                flag = 0;
-                p.playMagic(i);
-            }
-            else
-                flag++;
-            p = Game.getInstanceGame().opponent(p);
-        }
+        playDefaultInstant(p, flag);
         Game.getInstanceGame().getStack().resolveStack();
     }
 }

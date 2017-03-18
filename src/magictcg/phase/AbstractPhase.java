@@ -5,20 +5,33 @@
  */
 package magictcg.phase;
 
-import java.util.ArrayList;
-import java.util.List;
-import magictcg.trigger.AbstractCommand;
-import magictcg.trigger.ICommand;
-
+import magictcg.Game;
+import static magictcg.InputOutput.inputDiscard;
+import magictcg.player.Player;
 
 /**
  *
  * @author gianmarcocallegher
  */
 public abstract class AbstractPhase implements IPhase {
-    List<ICommand> commands;
+    public void loser(boolean b) {
+        Player p = Game.getInstanceGame().getCurrentplayer();
+        if (!b)
+            p.setLifepoints(0);
+    }
     
-    public AbstractPhase (){
-        this.commands  = new ArrayList<>();
+    public void draw() {
+        Player p = Game.getInstanceGame().getCurrentplayer();
+        boolean b = p.drawMagic();
+        loser(b);
+    }
+    
+    public void discard() {
+        int i;
+        Player p = Game.getInstanceGame().getCurrentplayer();
+        while (p.getHand().getSize() > 7) {
+            i = inputDiscard(p);
+            p.getHand().discardMagic(i - 1);
+        }
     }
 }

@@ -29,4 +29,8 @@ public class Deck {
     public IMagic pop () {
         return (magics.isEmpty())? null : magics.remove(0);
     }
+    
+    public int getSize() {
+        return magics.size();
+    }
 }

@@ -72,17 +72,14 @@ public class Player {
         }
     }
 
-    /* Pesca una magia, se ce ne sono nel deck, se non riesce a pescare setta la propria vita a 0*/
+    /* Pesca una magia, se ce ne sono nel deck, se non riesce a pescare setta la propria vita a 0 */
     public boolean drawMagic() {
         IMagic m = deck.pop();
         if (m != null) {
             hand.addMagic(m);
             return true;
-        } else {
-            lifepoints = 0;
-            return false;
         }
-
+        return false;
     }
 
     public void playMagic(int i) {

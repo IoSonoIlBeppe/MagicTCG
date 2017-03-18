@@ -11,11 +11,7 @@ import magictcg.phase.DefaultDrawPhase;
 import magictcg.phase.DefaultEndPhase;
 import magictcg.phase.DefaultMainPhase;
 import magictcg.phase.DefaultUntapPhase;
-import magictcg.phase.DrawPhase;
-import magictcg.phase.EndPhase;
 import magictcg.phase.IPhase;
-import magictcg.phase.MainPhase;
-import magictcg.phase.UntapPhase;
 import magictcg.trigger.Trigger;
 
 
@@ -48,9 +44,8 @@ public class PhaseManager {
     
     public void resolvePhases() {
         startTrigger.resolveCommands();
-        for (IPhase p : phases) {
+        for (IPhase p : phases)
             p.startPhase();
-        }
         endTrigger.resolveCommands();
     }
 
@@ -67,9 +62,9 @@ public class PhaseManager {
         phases.add(index, phase);
     }
 
-    public int indexOfPhase(IPhase selector) {
+    public int indexOfPhase(String name) {
         int i = 0;
-        while (((phases.get(i)).getClass() != selector.getClass()) && i < phases.size())
+        while ((name.equals(phases.get(i).getPhaseName())) && i < phases.size())
             i++;
         return (i < phases.size())? i : -1;
     }

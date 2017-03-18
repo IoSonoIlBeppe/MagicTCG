@@ -11,5 +11,5 @@ import magictcg.magic.AbstractMagic;
  *
  * @author fmaganza
  */
-public abstract class AbstractSorcery extends AbstractMagic{
+public abstract class AbstractSorcery extends AbstractMagic implements ISorcery{
 }

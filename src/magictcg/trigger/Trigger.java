@@ -21,8 +21,12 @@ public class Trigger {
     
     public void resolveCommands () {
         for (ICommand c : commands){
-            if (c.getTriggerCounter() == 0)
+            if (c.getTriggerCounter() == 0) {
                 c.execute();
+                c.setTurns(c.getTurns() - 1);
+                if (c.getTurns() == 0)
+                    commands.remove(c);
+            }
             else
                 c.setTriggerCounter(c.getTriggerCounter() - 1);
         }

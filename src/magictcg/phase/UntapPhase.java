@@ -9,11 +9,11 @@ package magictcg.phase;
  *
  * @author gianmarcocallegher
  */
-public class UntapPhase implements IPhase {
+public abstract class UntapPhase extends AbstractPhase {
 
     @Override
-    public void startPhase() {
-        
+    public String getPhaseName() {
+        return "UntapPhase";
     }
     
 }

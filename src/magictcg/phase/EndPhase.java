@@ -5,15 +5,19 @@
  */
 package magictcg.phase;
 
+import magictcg.Game;
+import static magictcg.InputOutput.deckSize;
+import static magictcg.InputOutput.handSize;
+import magictcg.player.Player;
+
 /**
  *
  * @author gianmarcocallegher
  */
-public class EndPhase implements IPhase {
-
-    @Override
-    public void startPhase() {
-        
-    }
+public abstract class EndPhase extends AbstractPhase {
     
+    @Override
+    public String getPhaseName() {
+      return "EndPhase";
+    }
 }
