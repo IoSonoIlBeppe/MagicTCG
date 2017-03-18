@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package magictcg.player;
 
 
@@ -12,19 +7,25 @@ import magictcg.magic.permanent.PermanentCreature;
 import magictcg.magic.permanent.IPermanent;
 
 /**
- *
- * @author Beppe
+ * Tale classe definisce il campo di un giocatore. Il suo compito è quello di 
+ * contenere le magie permanenti che verrano giocate durante la partita.
  */
 public class Field {
     List<IPermanent> slots = new ArrayList<>();
     
-    /* Mettodo per settare a false la proprietà di tutte le creature in campo */
+    /**
+     * Viene eseguita l'operazione di Untap per ogni creatura presente in campo 
+     */
     public void untap () {
         for (IPermanent p : slots)
             if (p instanceof PermanentCreature)
                 ((PermanentCreature) p).setTapped(false);
     }
     
+    /**
+     * Metodo per ottenere il numero di magie permanenti nel campo
+     * @return il numero di magie permanenti nel campo
+     */
     public int getSize() {
         return slots.size();
     }

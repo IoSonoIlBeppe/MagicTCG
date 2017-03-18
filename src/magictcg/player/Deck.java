@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package magictcg.player;
 
 import java.util.ArrayList;
@@ -10,13 +5,18 @@ import java.util.List;
 import magictcg.magic.IMagic;
 
 /**
- *
- * @author Beppe
+ * Questa classe definisce il mazzo di un giocatore. Inizialmente non conterrà
+ * nessuna magia, ma verranno inserite, uno alla volta, all'inizio della partita.
+ * 
+ * 
  */
 public class Deck {
 
     List<IMagic> magics;
 
+    /**
+     * Crea un mazzo vuoto di default
+     */
     public Deck() {
         this.magics = new ArrayList<>();
     }
