@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package magictcg;
 
 import magictcg.magic.IMagic;
@@ -11,24 +6,23 @@ import java.util.List;
 
 
 /**
- * The EffectStack class represents a last-in-first-out (LIFO) stack of IMagic 
- * objects, which are the containers of the effects to be activated.
+ * La classe EffectStack rappresenta uno stack (struttura LIFO) di oggetti IMagic, i quali contengono
+ * gli effetti che dovranno essere attivati.
  * 
- * @author Beppe
  */
 public class EffectStack {
     List<IMagic> stack;
     
     /**
-     * Creates an empty stack of effects
+     * Crea uno stack degli effetti vuoto
      */
     public EffectStack() {
         this.stack = new ArrayList<>();
     }
     
    /**
-    * This method pushes a magic containing the effect on the top of the stack
-    * @param m the magic that will be inserted
+    * Metodo per inserire in cima allo stack la magia contenente l'effetto.
+    * @param m la magia che verrà inserita
     */
     public void pushMagic(IMagic m) {
         stack.add(m);
@@ -36,9 +30,8 @@ public class EffectStack {
     
     
     /**
-     * This method pops a magic from the top of the stack and its effect is 
-     * activated
-     * @return True if a magic is popped, False if the stack is empty
+     * Metodo per estrarre una magia dalla cima dello stack e attivare il suo effetto
+     * @return True se la magia è estratta ed attivata , False se lo stack è vuoto
      */
     public boolean popMagic() {
         if (!stack.isEmpty()) {
@@ -50,27 +43,27 @@ public class EffectStack {
     }
     
     /**
-     * This method pushes a magic containing the effect into a specified index 
-     * of the stack
-     * @param m the magic that will be inserted
-     * @param i the index of insertion
+     * Metodo per inserire una magia contentente un effetto in una specifica 
+     * posizione dello stack.
+     * @param m la magia che verrà inserita
+     * @param i la posizione i-esima nello stack
      */
     public void pushMagic (IMagic m, int i) {
         stack.add(i, m);
     }
     
     /**
-     * This method pops a magic from a specified index of the stack and its 
-     * effect is activated
-     * @param i The index of the element to pop
+     * Metodo per estratte una magia contentente un effetto da una posizione 
+     * specifica dello stack
+     * @param i la posizione i-esima dell'effetto da estrarre
      */
     public void popMagic (int i) {
         stack.remove(i);
     }
     
     /**
-     * This method activates all the effect of the magic contained into the 
-     * stack, popping the one by one
+     * Metodo per l'estrazione e l'attivazione di tutti gli effetti presenti nello
+     * stack. Si ferma solamente quando lo stack si svuota.
      */
     public void resolveStack() {
         while(!stack.isEmpty())

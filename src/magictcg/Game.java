@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package magictcg;
 
 
@@ -10,8 +5,10 @@ import magictcg.player.Player;
 
 
 /**
- *
- * @author Beppe
+ * Tale classe, utilizzata per l'implementazione del pattern Singleton, verrà istanziata
+ * un'unica volta, per poi essere usata come contenitore dove mantenere delle risorse
+ * necessarie a oggetti differenti.
+ * 
  */
 public class Game {
     
@@ -20,16 +17,15 @@ public class Game {
     private static Player p1, p2;
     private static EffectStack stack;
     
-    /* Costruttore privato per implementare il pattern Singleton */
     /**
-     * Private constructor used to implement the singleton pattern
+     * Costruttore privato per implementare il pattern Singleton
      */
     private Game() {}
     
-    /* Istanza del Singleton */
+    /*  */
     /**
-     * This static method return the instence of the game singleton
-     * @return the sgnleton instance
+     * Metodo per forzare un unica istanza del singleton
+     * @return l'istanza del singleton
      */
     public static Game getInstanceGame () {
         if (instanceGame == null)
@@ -65,24 +61,25 @@ public class Game {
     
     
     /**
-     * This method returns the reference to the player which is currently 
-     * playing
-     * @return The current player
+     * Metodo che mi indica indica qual'è il giocatore che sta giocando il turno 
+     * attuale
+     * @return una referenza a uno dei due oggetti Player
      */
     public Player getCurrentplayer() {
         return currentplayer;
     }
     
     /**
-     * This method returns the reference to the stack of effects of the game
-     * @return The stack of effects
+     * Metodo per ottenere una referenza allo stack degli effetti del gioco
+     * @return lo Stack degli effetti
      */
     public EffectStack getStack() {
         return stack;
     }
     
     /**
-     * This method switches the player with its opponent as current player
+     * Metodo per cambiare la referenza di currentplayer dal giocatore attuale 
+     * al giocatore avversario
      */
     public void switchPlayer() {
         if (currentplayer == p1)
@@ -92,9 +89,9 @@ public class Game {
     }
     
     /**
-     * This method returns the opponent player of a specified player
-     * @param p The to be specified
-     * @return The opponent of player p
+     * Metodo che ritorna il Player avversario
+     * @param p Il Player dato
+     * @return L'avversario del Player p 
      */
     public Player opponent (Player p) {
         return (p == p1)? p2 : p1;
