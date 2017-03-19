@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package magictcg.phase;
 
 import magictcg.Game;
@@ -10,11 +6,16 @@ import static magictcg.InputOutput.phaseNameOf;
 import magictcg.player.Player;
 
 /**
- *
- * @author Beppe
+ * classe per l'implemetazione di default della Main Phase
+ * 
  */
 public class DefaultMainPhase extends MainPhase{
-
+    
+    /**
+     * chiede al giocatore di turno se vuole giocare una magia, dopodichè 
+     * inizierà la risposta con istantanee alternata fra i due giocatori 
+     * finchè tutti i due giocatori non vorranno o non potranno più rispondere.
+     */
     @Override
     public void startPhase() {
         int flag;

@@ -1,21 +1,18 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package magictcg.phase;
 
-import magictcg.Game;
-import static magictcg.InputOutput.deckSize;
-import static magictcg.InputOutput.handSize;
-import magictcg.player.Player;
 
 /**
- *
- * @author gianmarcocallegher
+ * classe astratta che implementa tutti i metodi comuni alle possibili 
+ * implementazioni della fase End.
+ * 
  */
 public abstract class EndPhase extends AbstractPhase {
     
+     /**
+     * ritorna il codice univoco di una fase End
+     * @return codice univoco di una fase End
+     */
     @Override
     public String getPhaseName() {
       return "EndPhase";

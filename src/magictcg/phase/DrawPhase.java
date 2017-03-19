@@ -1,16 +1,17 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package magictcg.phase;
 
 /**
- *
- * @author gianmarcocallegher
+ * classe astratta che implementa tutti i metodi comuni alle possibili 
+ * implementazioni della fase Draw.
+ * 
  */
 public abstract class DrawPhase extends AbstractPhase{
-
+    
+     /**
+     * ritorna il codice univoco di una fase Draw
+     * @return codice univoco di una fase Draw
+     */
     @Override
     public String getPhaseName() {
         return "DrawPhase";

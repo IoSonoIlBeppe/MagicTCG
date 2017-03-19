@@ -1,16 +1,15 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package magictcg.phase;
 
 /**
- *
- * @author Beppe
+ * classe per l'implemetazione di default della Combat Phase.
+ * 
  */
 public class DefaultCombatPhase extends CombatPhase{
     
+    /**
+     * Non fa nulla
+     */
     @Override
     public void startPhase() {
     }
